@@ -5,6 +5,9 @@
 #include <oop.h>
 #include <exception.h>
 
+#include "collection.export.h"
+
+#define LIB_EXPORT COLLECTION_EXPORT
 #define TYPENAME Iterator
 
 OBJECT (void *collection) INHERIT (void*)
@@ -16,10 +19,11 @@ OBJECT (void *collection) INHERIT (void*)
   int   (*count)(Iterator *this);
 END_OBJECT(NULL);
 
-int  done(Iterator *e);
-void next(Iterator *e);
-int  count(Iterator *e);
+COLLECTION_EXPORT int  done(Iterator *e);
+COLLECTION_EXPORT void next(Iterator *e);
+COLLECTION_EXPORT int  count(Iterator *e);
 
 #undef TYPENAME
+#undef LIB_EXPORT
 
 #endif

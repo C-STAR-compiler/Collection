@@ -8,6 +8,9 @@
 
 #include "objectarray.h"
 
+#include "collection.export.h"
+
+#define LIB_EXPORT COLLECTION_EXPORT
 #define TYPENAME Set
 
 OBJECT (const Type *type) INHERIT (ObjectArray)
@@ -15,15 +18,17 @@ OBJECT (const Type *type) INHERIT (ObjectArray)
   Comparer keyComparer;
 END_OBJECT(TYPEOF (void*));
 
-int CONST (Contains)(const void *data);
-int CONST (ContainsKey)(const void *data);
+COLLECTION_EXPORT int CONST (Contains)(const void *data);
+COLLECTION_EXPORT int CONST (ContainsKey)(const void *data);
 
-int   _(Add)(void *data);
-int   _(AddValue)(const Type *type, void *data);
-int   _(Remove)(const void *data);
-int   _(RemoveKey)(const void *data);
-Set  *_(Union)(Set *other);
-Set  *_(Intersect)(Set *other);
+COLLECTION_EXPORT int   _(Add)(void *data);
+COLLECTION_EXPORT int   _(AddValue)(const Type *type, void *data);
+COLLECTION_EXPORT int   _(Remove)(const void *data);
+COLLECTION_EXPORT int   _(RemoveKey)(const void *data);
+COLLECTION_EXPORT Set  *_(Union)(Set *other);
+COLLECTION_EXPORT Set  *_(Intersect)(Set *other);
 
 #undef TYPENAME
+#undef LIB_EXPORT
+
 #endif

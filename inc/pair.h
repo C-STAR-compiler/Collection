@@ -7,6 +7,9 @@
 
 #include "comparer.h"
 
+#include "collection.export.h"
+
+#define LIB_EXPORT COLLECTION_EXPORT
 #define TYPENAME Pair
 
 OBJECT () NOBASE
@@ -14,16 +17,18 @@ OBJECT () NOBASE
   void *second;
 END_OBJECT();
 
-Pair *STATIC (From)(void *first, void *second);
+COLLECTION_EXPORT Pair *STATIC (From)(void *first, void *second);
 
-void *_(SetF)(void *element);
-void *_(SetS)(void *element);
+COLLECTION_EXPORT void *_(SetF)(void *element);
+COLLECTION_EXPORT void *_(SetS)(void *element);
 
-void *_(SetValueF)(const Type *type, void *element);
-void *_(SetValueS)(const Type *type, void *element);
+COLLECTION_EXPORT void *_(SetValueF)(const Type *type, void *element);
+COLLECTION_EXPORT void *_(SetValueS)(const Type *type, void *element);
 
-void     *CONST (FDeref)();
-void     *CONST (SDeref)();
+COLLECTION_EXPORT void     *CONST (FDeref)();
+COLLECTION_EXPORT void     *CONST (SDeref)();
 
 #undef TYPENAME
+#undef LIB_EXPORT
+
 #endif

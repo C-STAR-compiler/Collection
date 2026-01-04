@@ -13,29 +13,31 @@
 #include <list.h>
 #include <str.h>
 
+#include "collection.export.h"
+
 #define TYPENAME String
 
-ObjectArray *_(Split)(const char *other);
+COLLECTION_EXPORT ObjectArray *_(Split)(const char *other);
 
 #undef TYPENAME
 
 #define TYPENAME Array
 
-String *CONST (ToStringFormat) (const char *format) VIRTUAL (ToStringFormat);
+COLLECTION_EXPORT String *CONST (ToStringFormat) (const char *format) VIRTUAL (ToStringFormat);
 
 #undef TYPENAME
 
 #define TYPENAME ObjectArray
 
-String *_(Join)(const char *link);
+COLLECTION_EXPORT String *_(Join)(const char *link);
 
-String *CONST (ToString) () VIRTUAL (ToString);
+COLLECTION_EXPORT String *CONST (ToString) () VIRTUAL (ToString);
 
 #undef TYPENAME
 
 #define TYPENAME Pair
 
-String *CONST (ToString) () VIRTUAL (ToString);
+COLLECTION_EXPORT String *CONST (ToString) () VIRTUAL (ToString);
 
 #undef TYPENAME
 
@@ -53,7 +55,7 @@ FOREIGN_VIRTUAL(ToString, ObjectArray_ToString);
 
 #define TYPENAME List
 
-String *CONST (ToString) (const char *format) VIRTUAL (ToString);
+COLLECTION_EXPORT String *CONST (ToString) (const char *format) VIRTUAL (ToString);
 
 #undef TYPENAME
 
