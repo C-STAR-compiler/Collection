@@ -9,7 +9,7 @@
 
 #include "collection.export.h"
 
-#define LIB_EXPORT COLLECTION_EXPORT
+#define PUBLIC COLLECTION_EXPORT
 #define TYPENAME Pair
 
 OBJECT () NOBASE
@@ -17,18 +17,18 @@ OBJECT () NOBASE
   void *second;
 END_OBJECT();
 
-COLLECTION_EXPORT Pair *STATIC (From)(void *first, void *second);
+PUBLIC Pair *STATIC (From)(void *first, void *second);
 
-COLLECTION_EXPORT void *_(SetF)(void *element);
-COLLECTION_EXPORT void *_(SetS)(void *element);
+PUBLIC void *_(SetF)(void *element);
+PUBLIC void *_(SetS)(void *element);
 
-COLLECTION_EXPORT void *_(SetValueF)(const Type *type, void *element);
-COLLECTION_EXPORT void *_(SetValueS)(const Type *type, void *element);
+PUBLIC void *_(SetValueF)(const Type *type, void *element);
+PUBLIC void *_(SetValueS)(const Type *type, void *element);
 
-COLLECTION_EXPORT void     *CONST (FDeref)();
-COLLECTION_EXPORT void     *CONST (SDeref)();
+PUBLIC void     *CONST (FDeref)();
+PUBLIC void     *CONST (SDeref)();
 
 #undef TYPENAME
-#undef LIB_EXPORT
+#undef PUBLIC
 
 #endif

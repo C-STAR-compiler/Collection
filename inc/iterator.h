@@ -7,7 +7,7 @@
 
 #include "collection.export.h"
 
-#define LIB_EXPORT COLLECTION_EXPORT
+#define PUBLIC COLLECTION_EXPORT
 #define TYPENAME Iterator
 
 OBJECT (void *collection) INHERIT (void*)
@@ -19,11 +19,11 @@ OBJECT (void *collection) INHERIT (void*)
   int   (*count)(Iterator *this);
 END_OBJECT(NULL);
 
-COLLECTION_EXPORT int  done(Iterator *e);
-COLLECTION_EXPORT void next(Iterator *e);
-COLLECTION_EXPORT int  count(Iterator *e);
+PUBLIC int  done(Iterator *e);
+PUBLIC void next(Iterator *e);
+PUBLIC int  count(Iterator *e);
 
 #undef TYPENAME
-#undef LIB_EXPORT
+#undef PUBLIC
 
 #endif

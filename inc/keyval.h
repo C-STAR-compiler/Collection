@@ -9,7 +9,7 @@
 
 #include "collection.export.h"
 
-#define LIB_EXPORT COLLECTION_EXPORT
+#define PUBLIC COLLECTION_EXPORT
 #define TYPENAME KeyVal
 
 typedef int (*EnvComparer)(void *against, void *reference, void *envptr);
@@ -24,13 +24,13 @@ OBJECT (KeyValEnvironment *env) INHERIT (Pair)
   KeyValEnvironment *env;
 END_OBJECT(NULL);
 
-COLLECTION_EXPORT int _(Comparer)   (KeyVal *reference) VIRTUAL (Comparer);
-COLLECTION_EXPORT int _(KeyComparer)(KeyVal *reference) VIRTUAL (KeyComparer);
+PUBLIC int _(Comparer)   (KeyVal *reference) VIRTUAL (Comparer);
+PUBLIC int _(KeyComparer)(KeyVal *reference) VIRTUAL (KeyComparer);
 
-COLLECTION_EXPORT int _(EnvComparer)   (KeyVal *reference);
-COLLECTION_EXPORT int _(EnvKeyComparer)(KeyVal *reference);
+PUBLIC int _(EnvComparer)   (KeyVal *reference);
+PUBLIC int _(EnvKeyComparer)(KeyVal *reference);
 
 #undef TYPENAME
-#undef LIB_EXPORT
+#undef PUBLIC
 
 #endif

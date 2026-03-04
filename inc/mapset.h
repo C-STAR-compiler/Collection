@@ -14,7 +14,7 @@
 
 #include "collection.export.h"
 
-#define LIB_EXPORT COLLECTION_EXPORT
+#define PUBLIC COLLECTION_EXPORT
 #define TYPENAME MapSet
 
 // In maps, efficient comparison is essential
@@ -24,23 +24,23 @@ OBJECT (const Type *key) INHERIT (Set)
   KeyValEnvironment env;
 END_OBJECT(TYPEOF (const char*));
 
-COLLECTION_EXPORT void _(Env)(EnvComparer comparer, EnvComparer keyComparer, void *env);
+PUBLIC void _(Env)(EnvComparer comparer, EnvComparer keyComparer, void *env);
 
-COLLECTION_EXPORT KeyVal *_(Set)(void *key, void *value);
-COLLECTION_EXPORT KeyVal *_(SetKey)(const void *key, void *value);
-COLLECTION_EXPORT KeyVal *_(SetValue)(void *key, const Type *valueType, void *value);
-COLLECTION_EXPORT KeyVal *_(SetKeyValue)(const void *key, const Type *valueType, void *value);
-COLLECTION_EXPORT void    _(Remove)(const void *key);
-COLLECTION_EXPORT void    _(RemoveKey)(const void *key);
+PUBLIC KeyVal *_(Set)(void *key, void *value);
+PUBLIC KeyVal *_(SetKey)(const void *key, void *value);
+PUBLIC KeyVal *_(SetValue)(void *key, const Type *valueType, void *value);
+PUBLIC KeyVal *_(SetKeyValue)(const void *key, const Type *valueType, void *value);
+PUBLIC void    _(Remove)(const void *key);
+PUBLIC void    _(RemoveKey)(const void *key);
 
-COLLECTION_EXPORT KeyVal *CONST (At)(const void *key);
-COLLECTION_EXPORT KeyVal *CONST (AtKey)(const void *key);
-COLLECTION_EXPORT void   *CONST (ValueAt)(const void *key);
-COLLECTION_EXPORT void   *CONST (ValueAtKey)(const void *key);
-COLLECTION_EXPORT void   *CONST (ValueAtDeref)(const void *key);
-COLLECTION_EXPORT void   *CONST (ValueAtKeyDeref)(const void *key);
+PUBLIC KeyVal *CONST (At)(const void *key);
+PUBLIC KeyVal *CONST (AtKey)(const void *key);
+PUBLIC void   *CONST (ValueAt)(const void *key);
+PUBLIC void   *CONST (ValueAtKey)(const void *key);
+PUBLIC void   *CONST (ValueAtDeref)(const void *key);
+PUBLIC void   *CONST (ValueAtKeyDeref)(const void *key);
 
 #undef TYPENAME
-#undef COLLECTION_EXPORT
+#undef PUBLIC
 
 #endif
